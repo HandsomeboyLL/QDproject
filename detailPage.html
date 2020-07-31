@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" nav="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" nav="ie=edge"><title>Document</title><script src="js/jquery-1.11.3.js"></script><style>*{
+            margin: 0px;
+            padding: 0px;
+        }
+        .head{height: 150px; width: 100%; position: fixed; top: 0; background: rgba(0,0,0,1); z-index: 4;}
+        .head div{float: left;  width:14%;height: 150px;line-height: 150px; text-align: center; color: rgba(255, 255, 255, 1);}
+        .head div img{margin-top: 30px;}
+        .dropdown { /* position: relative; */ display: inline-block;}
+
+        .dropdown-content { z-index: 3; display: none; position: absolute; background-color: rgba(0, 0, 0, 0.5); }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content p{
+            margin-top: -100px;
+        }
+
+        #box {
+            width: 600px;
+            height: 600px;
+            border: 1px solid black;
+            position: relative;
+
+        }
+        #box img{
+            width:600px;
+            height:600px;
+        }
+
+        #image {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            overflow: hidden;
+            position: relative;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            border: 2px solid black;
+        }
+        li img{
+            width: 100px;
+            height: 100px;
+            margin: 8.3px;
+        }
+
+        #show {
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top:0;
+        }
+        .nav {
+            height: 600px;
+            width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 200px;
+        }
+        #image img{
+            position: absolute;
+            width:1300px;
+            height:1300px;
+        }
+        .intro{
+            width: 500px;
+            height: 250px;
+            position: absolute;
+            right: -91px;
+            top: 200px;
+        }
+        .intro h4{width: 300px;}
+        .intro button{
+            width: 200px;
+            height: 50px;
+            background-color: red;
+            color: white;
+            font-size: 26px;
+            position: absolute;
+            left: 180px;
+            bottom: 0px;
+        }</style></head><body><div class="nav"><div id="box"><img src="./images/1.1.jpg" alt=""><div id="show"></div></div><div id="image"><img src="./images/1.1.jpg" alt=""></div></div><div><li><img src="./images/1.1.jpg" alt=""></li><li><img src="./images/1.2.jpg" alt=""></li><li><img src="./images/1.1.jpg" alt=""></li><li><img src="./images/1.2.jpg" alt=""></li><li><img src="./images/1.1.jpg" alt=""></li></div><div class="intro"><h2>深海幽灵 Z2Air-S系列</h2><h3 style="color: red;">轻薄便携 72%高色域 512G PCIESSD</h3><br><h2 style="color: red;">￥5799</h2><h4>品牌： MECHREVO机械革命</h4><a href="shoppingCar.html"><button>立即购买</button></a></div><script>$('div li img').click(function () {
+            $('#box img').attr('src',this.src)
+            $('#image img').attr('src',$('#box img')[0].src)
+        })
+        var box = $('#box')
+        var image = $('#image')
+        var btn = $('#show')
+        var flge = false
+        $('#show').mousedown(function () {
+            flge = true
+            $('#box').mousemove(function (e) {
+                if(flge){
+                    var moveX = e.pageX - 50;
+                var moveY = e.pageY - 50;
+                var maxX = e.pageX;
+                var maxY = e.pageY;
+                if (moveX < 0) {
+                    moveX = 0;
+                }
+                if (moveY < 200) {
+                    moveY = 200;
+                }
+                if (moveX > 400) {
+                    moveX = 400;
+                }
+                if (moveY > 600) {
+                    moveY = 600;
+                }              
+                $('#show').css('left', moveX)
+                $('#show').css('top', moveY-200)
+                $('#image img').css('left',(-moveX)*2)
+                $('#image img').css('top',(-moveY+200)*2)
+                } 
+            })
+        })
+        $('#show').mouseup(function () {
+            flge = false
+        })</script><div class="head"><div class="dropdown"><span>游戏本系列</span><div class="dropdown-content" style="height: 300px; width: 1800px;"><a href="detailPage.html"><div><img src="./images/z2air_nav.png" alt=""><p>Z2 Air</p></div></a><a href="detailPage.html"><div><img src="./images/Z2Air-G.png" alt=""><p>Z2 Air-G</p></div></a><a href="detailPage.html"><div><img src="./images/X8Ti-G.png" alt=""><p>X8Ti-G</p></div></a><a href="detailPage.html"><div><img src="./images/x9ti_nav.png" alt=""><p>X9Ti-R</p></div></a><a href="detailPage.html"><div><img style="margin-top: 50px;" src="./images/X3-S.png" alt=""><p>X3-S</p></div></a><a href="detailPage.html"><div><img style="margin-top: 40px;" src="./images/Z3 Air.png" alt=""><p>Z3 Air</p></div></a></div></div><div class="dropdown"><span>轻薄本系列</span><div class="dropdown-content" style="height: 300px; width: 1800px;"><a href="detailPage.html"><div><img src="./images/qingbao1.png" alt=""><p>S1 Pro悦系列</p></div></a><a href="detailPage.html"><div><img src="./images/qingbao2.png" alt=""><p>s2</p></div></a><a href="detailPage.html"><div><img src="./images/qingbao3.png" alt=""><p>S1系列</p></div></a><a href="detailPage.html"><div><img src="./images/qingbao4.png" alt=""><p>S1 Plus</p></div></a></div></div><div class="dropdown"><span>台式机系列</span><div class="dropdown-content" style="height: 300px; width: 1800px;"><a href="detailPage.html"><div><img src="./images/nx6_nav.png" alt=""><p>NX6</p></div></a><a href="detailPage.html"><div><img src="./images/lx900_nav.png" alt=""><p>LX900</p></div></a><a href="detailPage.html"><div><img src="./images/ex_nav.png" alt=""><p>EX</p></div></a><a href="detailPage.html"><div><img src="./images/EX660T.png" alt=""><p>EX660T</p></div></a></div></div><div><a href="skypegmwcn.html"><img src="./images/logo.png"></a></div><div class="dropdown"><span>设计师本系列</span><div class="dropdown-content" style="height: 300px; width: 1800px;"><a href="detailPage.html"><div><img src="./images/shejishi.png" alt=""><p>Umi Air</p></div></a></div></div><div class="dropdown"><span>原计划</span><div class="dropdown-content" style="height: 300px; width: 1800px;"><a href="detailPage.html"><div><img src="./images/yjh.jpg" alt=""><p>原计划</p></div></a></div></div><div class="dropdown"><span>商城</span><div class="dropdown-content" style="height: 300px; width: 1800px;"><a href="shoppingCar.html"><div><img src="./images/tfsc.png" alt=""><p>官方商城</p></div></a></div></div></div></body></html>
